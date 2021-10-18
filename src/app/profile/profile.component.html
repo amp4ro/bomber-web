@@ -1,0 +1,66 @@
+  
+<!-- <div *ngIf="profile" class="container">
+    <mat-card class="card">
+        <mat-card-header>
+            <div mat-card-avatar>
+                <img src="https://img.icons8.com/cotton/2x/gender-neutral-user--v2.png" class="header-image">
+            </div>
+            <mat-card-title>{{profile.username}}</mat-card-title>
+            <mat-card-subtitle>{{profile.trialName}} (Avalible too {{ getExpiredTrialDate(profile.trialStarted, profile.trialSubscribedMonth) }})</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-list >
+                <mat-list-item> Using {{ events.length }} phones of {{ profile.subscribtion.maxPhones }}</mat-list-item>
+                <mat-list-item *ngFor="let event of events"> {{event.phone}} <span class="spacer"></span> <button mat-button color="warn">Off</button></mat-list-item>
+            </mat-list>
+        </mat-card-content>
+        
+    </mat-card>
+    
+</div> -->
+<div *ngIf="profile" class="container border">
+    <div class="block">
+        <div style="">
+            <span style="font-size: 20px;">{{profile.username}}<span style="background: {{ profile.subscribtion.colorCode }};" class="sub-name">{{profile.subscribtion.name}}</span></span>
+        </div>
+        <span style="line-height: 2em;">Expires in {{ getExpiredTrialDate(profile.trialStarted, profile.trialSubscribedMonth) }}</span>
+        
+        <form [formGroup]="activateForm" (ngSubmit)="activateSubmit()">
+    
+            <mat-form-field style="margin-right: 20px;">
+            <input type="tel" matInput formControlName="phone" placeholder="Phone number">
+            </mat-form-field>
+            <mat-form-field >
+                <mat-label>Minutes</mat-label>
+                <mat-select matInput formControlName="minutes">
+                  <mat-option *ngFor="let time of avalibleTimes" [value]="time">
+                    {{time}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+    
+          <button style="margin-left:20px;" type="submit" class="btn btn-primary">Activate bomber</button><br>
+          <span *ngIf="error"> {{ error }} </span>
+    
+        </form>
+    </div>
+    
+</div>
+<div *ngIf="profile" class="container border block">
+    Using {{ events.length }} phones of {{ profile.subscribtion.maxPhones }}
+</div>
+<div *ngIf="profile">
+    <div style="margin-top: 0px;" class="container border block phone" *ngFor="let event of events">
+        <div style="line-height: 1.5em;">
+            <span style="font-size: 20px;">{{event.phone}}</span><br>
+    
+            <span>{{ event.minutes }} minutes | {{ event.smsPerMinute }} sms per minute</span>
+        </div>       
+        <span class="spacer"></span>
+        <button type="submit" class="btn btn-danger" (click)="off(event.id)">Off</button>
+    </div>
+</div>
+
+
+
+

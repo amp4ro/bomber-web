@@ -1,0 +1,72 @@
+
+<div class="card" *ngIf="sub">
+    <div class="card-body">
+        
+        <div>
+            <div>
+                <div class="left border">
+                    <div style="padding: 30px;">
+                        <input class="form-check-input" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault1" [(ngModel)]="month" (change)="changeSubMonth()" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            1 month
+                        </label><br>
+                        <input class="form-check-input" type="radio" value="6" name="flexRadioDefault" id="flexRadioDefault2" [(ngModel)]="month" (change)="changeSubMonth()" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            6 month
+                        </label><br>
+                        <input class="form-check-input" type="radio" value="12" name="flexRadioDefault" id="flexRadioDefault3" [(ngModel)]="month" (change)="changeSubMonth()" checked>
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            1 year
+                        </label>
+                    </div>
+                    
+                    <div class="pricing">
+                        Cost is
+                        <span *ngIf="cost" class="cost">{{ cost }}$</span>
+                    </div>
+                    
+                </div>
+            </div>
+          
+        </div>
+    </div>
+    <div class="card-body">
+        
+        <div>
+            <div>
+                <div class="left border">
+                    <div style="padding: 30px;">
+                        <input class="form-control" type="text" checked>
+                        <button class="btn btn-block btn-primary" type="submit">ORDER</button>
+                    </div>
+                    
+                    <!-- <div>Message</div> -->
+                    
+                </div>
+            </div>
+          
+        </div>
+    </div>
+   
+    <!-- <div class="card-body">
+        
+        <div>
+            <div>
+                <div class="left border payment">
+                    <div class="row"> <span class="header">Payment</span>
+                        <div class="icons"> <img src="https://img.icons8.com/color/48/000000/visa.png" /> <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" /> <img src="https://img.icons8.com/color/48/000000/maestro.png" /> </div>
+                    </div>
+                    <form [formGroup]="buyForm" (ngSubmit)="buy()"> <span>Cardholder's name:</span> <input placeholder="Linda Williams" formControlName="name"> <span>Card Number:</span> <input placeholder="0125 6780 4567 9909" formControlName="cardNumber">
+                        <div class="row">
+                            <div class="col-4"><span>Expiry date:</span> <input placeholder="YY/MM" formControlName="expDate"> </div>
+                            <div class="col-4"><span>CVV:</span> <input id="cvv" formControlName="cvv"> </div>
+                        </div> 
+                        <button class="btn btn-block btn-primary" type="submit">BUY</button>
+                    </form>
+                </div>
+            </div>
+          
+        </div>
+    </div> -->
+</div>
+<!-- <app-footer></app-footer> -->

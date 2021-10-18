@@ -1,0 +1,42 @@
+
+mat-card {
+    width: 80%;
+    max-width: 80%;
+    margin-top: 2%;
+}
+  
+.header-image {
+    background-size: cover;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+.container {
+
+}
+.border {
+    border: 1px solid rgba(0, 0, 0, 0.137);
+}
+.spacer {
+    flex: 1 1 auto;
+  }
+.block {
+    padding: 20px;
+}
+.container {
+    margin-top: 30px;
+}
+.phone {
+    display: flex;
+}
+.sub-name {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    border: 0px solid black;
+    border-radius: 5px;
+    color: white;
+  }
+.phone button { float: right; }

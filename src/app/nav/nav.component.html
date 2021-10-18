@@ -1,0 +1,47 @@
+<div class="nav">
+    <mat-toolbar>
+      <!-- <button type="button" mat-button color="primary"(click)="drawer.toggle()"> -->
+        <!-- <mat-icon>menu</mat-icon>
+      </button> -->
+      <button mat-button routerLink="/">
+       <img style="height: 2em; width: 2em;" src="../assets/images/logo.png">SilentBang
+      </button>
+      <!-- <button mat-button routerLink="/help">
+        <mat-icon>help_outline</mat-icon> Help
+      </button> -->
+      <span class="spacer"></span>
+      <div *ngIf="profile == null">
+        <button mat-button routerLink="/login">
+          Login
+        </button>
+        <button mat-button routerLink="/registration">
+          Registration
+        </button>
+      </div>
+      <div *ngIf="profile">
+        <button mat-button [matMenuTriggerFor]="menu">{{ profile.username }} <span style="background: {{ profile.subscribtion.colorCode }};" class="sub-name">{{profile.subscribtion.name}}</span><!-- <mat-icon>menu</mat-icon> --></button>
+        <mat-menu #menu>
+          
+          <button mat-menu-item routerLink="/profile">Profile <mat-icon>person</mat-icon></button>
+          <button *ngIf="profile.isAdmin" mat-menu-item routerLink="/admin-pannel">Admin pannel <mat-icon><span class="material-icons-outlined">
+            admin_panel_settings
+            </span></mat-icon></button>
+          <button mat-menu-item (click)="logout()">Log out <mat-icon>logout</mat-icon></button>
+        </mat-menu>
+      </div>
+    </mat-toolbar>
+    
+    <!-- <mat-drawer-container autosize>
+      <mat-drawer #drawer MatDrawerMode="side over" >
+          <button type="button" color="primary" mat-button routerLink="/home">
+            <mat-icon>home</mat-icon> Home
+          </button><br>
+      </mat-drawer>
+    
+    
+      <router-outlet>
+            
+        </router-outlet>
+        <app-footer></app-footer>
+    </mat-drawer-container> -->
+</div>

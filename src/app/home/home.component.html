@@ -1,0 +1,172 @@
+
+<header style="margin: 30px;">
+  <div class="container px-5">
+      <div class="row gx-5 align-items-center">
+          <div class="col-lg-6">
+            <h1>Welcome to SMS bomber</h1>
+            <p>
+              SMS Bomber is a bot that allows you to create spam SMS and CALLS to phone numbers.
+           We would like to warn you that using the bot without the written consent of the "victim" is a criminal offense.
+            Enjoy your use.
+            </p>
+            <h1>Here you can find out about the benefits of our bot</h1>
+
+            <p>Ability to specify the time of spam</p>
+            <p>Ability to put spam on several numbers at once</p>
+            <p>Good spam rate</p>
+            <p>Complete anonymity</p>
+            <p>Nice bot interface that even a child can understand</p>
+            <h1>You can see our pricing below</h1>
+          </div>
+          <div class="col-lg-6">
+              <img style="height: 600px; width: 300px;margin: 50px;border: 0px solid black;border-radius: 15px;" src="../assets/images/landing.jpg">
+              
+          </div>
+      </div>
+  </div>
+</header>
+<!-- <section class="container">
+    <h1>Welcome to the Bomber</h1>
+    <h3>Some text</h3>
+  </section> -->
+
+<!-- <div class='wrapper' *ngIf="subscribtions">
+    <div class='package' *ngFor="let subscribtion of subscribtions">
+      <div class='name'>{{ subscribtion.name }}</div>
+      <div class='price' *ngIf="subscribtion.costPerMonthUSD">${{ subscribtion.costPerMonthUSD }} / 1 month</div>
+      <div class='price' *ngIf="subscribtion.costPerSixMonthUSD">${{ subscribtion.costPerSixMonthUSD }} / 6 month</div>
+      <div class='price' *ngIf="subscribtion.costPerYearUSD">${{ subscribtion.costPerYearUSD }} / 1 year</div>
+      <div class='trial'>Available for a month</div>
+
+      <hr>
+      <ul>
+        <li>
+          <strong><mat-icon>done</mat-icon> {{ subscribtion.maxPhones }}</strong>
+          phones at the same time.
+        </li>
+        <li>
+          <strong><mat-icon>done</mat-icon> {{ subscribtion.smsPerMinute }}</strong>
+          sms per minute.
+        </li>
+        <li>
+          <strong><mat-icon>done</mat-icon> {{ subscribtion.maxBomberTimeMinutes }}</strong>
+           maximum minutes for bomber activations.
+        </li>
+      </ul>
+    </div> -->
+    <!-- <div class='package'>
+      <div class='name'>Brilliant</div>
+      <div class='price'>€5</div>
+      <div class='trial'>Free 30 day trial</div>
+      <hr>
+      <ul>
+        <li>
+          <strong>Unlimited</strong>
+          team members
+        </li>
+        <li>
+          <strong>Unlimited</strong>
+          team playlists
+        </li>
+        <li>
+          <strong>Unlimited</strong>
+          public playlists
+        </li>
+        <li>
+          Team analytics
+        </li>
+        <li>
+          Send files
+        </li>
+      </ul>
+    </div>
+    <div class='package'>
+      <div class='name'>Basic</div>
+      <div class='price'>€0</div>
+      <div class='trial'>Totally free</div>
+      <hr>
+      <ul>
+        <li>
+          <strong>5</strong>
+          team members
+        </li>
+        <li>
+          <strong>3</strong>
+          team playlists
+        </li>
+        <li>
+          <strong>Unlimited</strong>
+          public playlists
+        </li>
+      </ul>
+    </div> -->
+  <!-- </div> -->
+  
+  <section class="pricing-table"  *ngIf="subscribtions.length">
+    <div class="container">
+      <div class="block-heading">
+        <h2>Our Pricing</h2>
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p> -->
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col-md-5 col-lg-4" *ngFor="let sub of subscribtions">
+          <div class="item">
+            <div class="heading">
+              <h3 class="sub-name" style="background: {{ sub.colorCode }};">{{ sub.name }}</h3>
+            </div>
+            <div *ngIf="sub.name == best" class="ribbon">Best choice</div>
+
+            <div class="features">
+              <h4><span class="feature">Phones at the same time</span> : <span class="value">{{ sub.maxPhones }}</span></h4>
+              <h4><span class="feature">Sms per minute</span> : <span class="value">{{ sub.smsPerMinute }}</span></h4>
+              <h4><span class="feature">Maximum  activation minutes</span> : <span class="value">{{ sub.maxBomberTimeMinutes }}</span></h4>
+            </div>
+            <div class="price">
+              <h4 >${{ sub.costPerMonthUSD }} / 1 month</h4>
+      <h4 >${{ sub.costPerSixMonthUSD }} / 6 month</h4>
+      <h4 >${{ sub.costPerYearUSD }} / 1 year</h4>
+            </div>
+            <h3 *ngIf="!sub.costPerMonthUSD">Avalible for {{ sub.avalibleOnStartMonth }} month.</h3>
+            <button  *ngIf="sub.name != best &&  sub.costPerMonthUSD" class="btn btn-block btn-outline-primary" type="submit" (click)="buyPage(sub.name)">ORDER NOW</button>
+            <button  *ngIf="sub.name == best &&  sub.costPerMonthUSD"  class="btn btn-block btn-primary" (click)="buyPage(sub.name)">ORDER NOW</button>
+          </div>
+        </div>
+        <!-- <div class="col-md-5 col-lg-4">
+          <div class="item">
+            <div class="ribbon">Best Value</div>
+            <div class="heading">
+              <h3>PRO</h3>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="features">
+              <h4><span class="feature">Full Support</span> : <span class="value">Yes</span></h4>
+              <h4><span class="feature">Duration</span> : <span class="value">60 Days</span></h4>
+              <h4><span class="feature">Storage</span> : <span class="value">50GB</span></h4>
+            </div>
+            <div class="price">
+              <h4>$50</h4>
+            </div>
+            <button class="btn btn-block btn-primary" type="submit">BUY NOW</button>
+          </div>
+        </div>
+        <div class="col-md-5 col-lg-4">
+          <div class="item">
+            <div class="heading">
+              <h3>PREMIUM</h3>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="features">
+              <h4><span class="feature">Full Support</span> : <span class="value">Yes</span></h4>
+              <h4><span class="feature">Duration</span> : <span class="value">120 Days</span></h4>
+              <h4><span class="feature">Storage</span> : <span class="value">150GB</span></h4>
+            </div>
+            <div class="price">
+              <h4>$150</h4>
+            </div>
+            <button class="btn btn-block btn-outline-primary" type="submit">BUY NOW</button>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+  <app-footer></app-footer>
